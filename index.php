@@ -1,14 +1,6 @@
 <?php 
-  $conn = mysqli_connect("127.0.0.1", "root", "", "adoteumpet");
-  if(!$conn){
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-  }
-  
-  $results = $conn->query("SELECT * FROM animal");
-  var_dump($results->fetch_object());
+  require_once("connect.php");
+  session_start();
   $conn->close();
 ?>
 <html lang="pt-br">
@@ -16,20 +8,12 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <title>Adote um Pet</title>
+<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
     <link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
 
-	<header>
-		<h1 id="logo">Adote um Pet</h1>
-	    <nav class="topnav">
-	        <ul>
-	            <li>
-	            	<a href="#">login</a>
-	        	</li>
-	        </ul>
-	    </nav>
-	</header>
+<?php require("header.php") ?>
 
 	<section class="row" id="first-section">
 	    <article class="two-columns">
@@ -74,13 +58,6 @@
 			</div>
 	</section>
 
-	<footer>
-		<p>Adote um Pet</p>
-		<p>Rua Daqui a Pouco, Nº aquele mesmo</p>
-		<p>4002-8922</p>
-		<a href="mailto:contato@adoteumpete">contato@adoteumpet</a>
-	</footer>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="js/carrossel.js"></script>
+<?php require("footer.php") ?>
 </body>
 </html>
