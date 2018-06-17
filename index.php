@@ -1,15 +1,15 @@
 <?php 
-  require_once("connect.php");
+  require_once("select_animals.php");
   session_start();
-  $conn->close();
 ?>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <title>Adote um Pet</title>
-<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
     <link href="css/style.css" rel="stylesheet"/>
+    <link href="vendor/slick/slick.css" rel="stylesheet"/>
+    <link href="vendor/slick/slick-theme.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -38,26 +38,23 @@
 		<hr>
 	</div>
 	
-	<section class="row" id="myCarousel">
-		<div class="box_carrossel">
-			<!-- Wrapper for slides -->
-			<div class="row carrossel"></div>
-		</div>
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel">
-				<img src="images/Icon-left-arrow.png" alt="Next"></span>
-			</a>
-			<a class="right carousel-control" href="#myCarousel">
-				<img src="images/Icon-left-arrow.png" alt="Next"></span>
-			</a>
-
-			<div class="carousel-indicators">
-			<!-- Indicators -->
-				<ol></ol>
+	<section class="row">
+		<div id="carousel">
+			<?php foreach ($results as $result):?>
+			<div class="item" id="carousel-item" style="width: auto !important; height: auto !important; padding:0 130px;">
+				<a href="detail.php?id=<?= $result['id'] ?>">
+					<figure>
+						<img src="<?= $result['foto'] ?>">
+					</figure>
+					<h3><?= $result['nome'] ?></h3>
+				</a>
 			</div>
+			<?php endforeach; ?>
+		</div>
 	</section>
 
 <?php require("footer.php") ?>
+<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+<script type="text/javascript" src="js/carrossel.js"></script>
 </body>
 </html>

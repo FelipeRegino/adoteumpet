@@ -136,8 +136,8 @@ body {
     overflow: hidden;
 }
 
-.carrossel {
-    width: 1000%;
+.carousel {
+    width: 100%;
 }
 
 /* para criar quatro colunas dentra da linha, que flutuam uma ao lado da outra */

@@ -1,5 +1,5 @@
 <?php
-  $conn = mysqli_connect("127.0.0.1", "root", "", "adoteumpet");
+  $conn = mysqli_connect("127.0.0.1", "root", "123mil", "adoteumpet");
   if(!$conn){
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
